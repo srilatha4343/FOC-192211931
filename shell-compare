@@ -1,0 +1,10 @@
+$string1 = "money"
+$string2 = "money"
+if ($string1 -eq $string2)
+{
+  write-output "the strings are equal."
+} 
+else
+{
+  write-output "the strings are not equal."
+}
