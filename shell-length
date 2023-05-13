@@ -1,0 +1,5 @@
+echo "enter the string"
+read str
+len='echo $str | wc-c'
+len='expr $len-l'
+echo "length of the string is $len"
