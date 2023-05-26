@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+#define MAX_ACCESSORIES 10
+
+int main() {
+    float initialPrice, totalAccessoriesPrice = 0, salesTaxRate, totalCost;
+    int numAccessories;
+
+    printf("Enter the initial price of the car: ");
+    scanf("%f", &initialPrice);
+
+    printf("Enter the number of accessories (0 to %d): ", MAX_ACCESSORIES);
+    scanf("%d", &numAccessories);
+
+    if (numAccessories < 0 || numAccessories > MAX_ACCESSORIES) {
+        printf("Invalid number of accessories entered.\n");
+        return 1; // Exit the program with an error status
+    }
+
+    for (int i = 1; i <= numAccessories; i++) {
+        float accessoryPrice;
+        printf("Enter the price of accessory %d: ", i);
+        scanf("%f", &accessoryPrice);
+
+        totalAccessoriesPrice += accessoryPrice;
+    }
+
+    printf("Enter the sales tax rate: ");
+    scanf("%f", &salesTaxRate);
+
+    float salesTax = (initialPrice + totalAccessoriesPrice) * (salesTaxRate / 100);
+    totalCost = initialPrice + totalAccessoriesPrice + salesTax;
+
+    printf("Total cost of the car: %.2f\n", totalCost);
+
+    return 0;
+}
