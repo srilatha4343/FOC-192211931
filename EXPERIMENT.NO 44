@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+#define NUM_SALESPERSON 10
+#define NUM_DAYS 7
+
+int main() {
+    float sales[NUM_SALESPERSON][NUM_DAYS];
+    float salesTotal[NUM_DAYS] = {0.0};
+    float salespersonTotal[NUM_SALESPERSON] = {0.0};
+
+    // Enter the sales data for each salesperson and each day
+    printf("Enter the sales data for each salesperson and each day:\n");
+    for (int i = 0; i < NUM_SALESPERSON; i++) {
+        printf("Salesperson %d:\n", i + 1);
+        for (int j = 0; j < NUM_DAYS; j++) {
+            printf("Day %d: $", j + 1);
+            scanf("%f", &sales[i][j]);
+            salesTotal[j] += sales[i][j];
+            salespersonTotal[i] += sales[i][j];
+        }
+    }
+
+    // Calculate the average dollar amount of sales for each salesperson for a week
+    float salespersonAverage[NUM_SALESPERSON];
+    for (int i = 0; i < NUM_SALESPERSON; i++) {
+        salespersonAverage[i] = salespersonTotal[i] / (NUM_DAYS - 2); // Exclude the 2 days off
+    }
+
+    // Calculate the total dollar amount of sales for the store for each day and for the week
+    float storeTotal = 0.0;
+    for (int j = 0; j < NUM_DAYS; j++) {
+        storeTotal += salesTotal[j];
+    }
+
+    // Display the results
+    printf("\nAverage Dollar Amount of Sales for Each Salesperson for a Week:\n");
+    for (int i = 0; i < NUM_SALESPERSON; i++) {
+        printf("Salesperson %d: $%.2f\n", i + 1, salespersonAverage[i]);
+    }
+
+    printf("\nTotal Dollar Amount of Sales for the Store:\n");
+    for (int j = 0; j < NUM_DAYS; j++) {
+        printf("Day %d: $%.2f\n", j + 1, salesTotal[j]);
+    }
+    printf("Total for the Week: $%.2f\n", storeTotal);
+
+    return 0;
+}
