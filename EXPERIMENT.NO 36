@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int countA = 0, countB = 0, countC = 0, countD = 0, countF = 0;
+
+    for (int i = 1; i <= 200; i++) {
+        int studentNumber;
+        int numberGrade;
+        char letterGrade;
+
+        printf("Enter student number for student %d: ", i);
+        scanf("%d", &studentNumber);
+
+        printf("Enter number grade for student %d: ", i);
+        scanf("%d", &numberGrade);
+
+        if (numberGrade >= 90 && numberGrade <= 100) {
+            letterGrade = 'A';
+            countA++;
+        } else if (numberGrade >= 78 && numberGrade <= 89) {
+            letterGrade = 'B';
+            countB++;
+        } else if (numberGrade >= 65 && numberGrade <= 77) {
+            letterGrade = 'C';
+            countC++;
+        } else if (numberGrade >= 50 && numberGrade <= 64) {
+            letterGrade = 'D';
+            countD++;
+        } else {
+            letterGrade = 'F';
+            countF++;
+        }
+
+        printf("Student number: %d, Number grade: %d, Letter grade: %c\n", studentNumber, numberGrade, letterGrade);
+    }
+
+    printf("Total number of As: %d\n", countA);
+    printf("Total number of Bs: %d\n", countB);
+    printf("Total number of Cs: %d\n", countC);
+    printf("Total number of Ds: %d\n", countD);
+    printf("Total number of Fs: %d\n", countF);
+
+    return 0;
+}
