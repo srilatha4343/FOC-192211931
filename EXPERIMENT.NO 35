@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    int creditUnits, totalCreditUnits = 0;
+    double gradePoint, totalGradePoints = 0.0;
+    char letterGrade;
+    int moreCourses = 1;
+
+    while (moreCourses) {
+        printf("Enter the letter grade (A, B, C, D, F) for the course: ");
+        scanf(" %c", &letterGrade);
+
+        printf("Enter the credit units for the course: ");
+        scanf("%d", &creditUnits);
+
+        switch (letterGrade) {
+            case 'A':
+                gradePoint = 4.0;
+                break;
+            case 'B':
+                gradePoint = 3.0;
+                break;
+            case 'C':
+                gradePoint = 2.0;
+                break;
+            case 'D':
+                gradePoint = 1.0;
+                break;
+            case 'F':
+                gradePoint = 0.0;
+                break;
+            default:
+                printf("Invalid letter grade entered.\n");
+                continue;  // Skip to the next iteration of the loop
+        }
+
+        totalGradePoints += gradePoint * creditUnits;
+        totalCreditUnits += creditUnits;
+
+        printf("Course added successfully.\n");
+
+        printf("Do you have more courses to add? (1 for Yes, 0 for No): ");
+        scanf("%d", &moreCourses);
+    }
+
+    if (totalCreditUnits == 0) {
+        printf("No courses entered.\n");
+    } else {
+        double gpa = totalGradePoints / totalCreditUnits;
+        printf("Your GPA for the semester is %.2f\n", gpa);
+    }
+
+    return 0;
+}
