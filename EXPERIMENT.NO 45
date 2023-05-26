@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+#define NUM_STUDENTS 25
+#define NUM_TESTS 5
+
+int main() {
+    int grades[NUM_STUDENTS][NUM_TESTS];
+
+    // Enter the grades for each student and each test
+    printf("Enter the grades for each student and each test:\n");
+    for (int i = 0; i < NUM_STUDENTS; i++) {
+        printf("Student %d:\n", i + 1);
+        for (int j = 0; j < NUM_TESTS; j++) {
+            printf("Test %d: ", j + 1);
+            scanf("%d", &grades[i][j]);
+        }
+    }
+
+    // Enter the student number and test number
+    int studentNumber, testNumber;
+    printf("\nEnter the student number (1-25): ");
+    scanf("%d", &studentNumber);
+    printf("Enter the test number (1-5): ");
+    scanf("%d", &testNumber);
+
+    // Print the grade for the entered student number and test number
+    int grade = grades[studentNumber - 1][testNumber - 1];
+    printf("Grade for Student %d, Test %d: %d\n", studentNumber, testNumber, grade);
+
+    return 0;
+}
